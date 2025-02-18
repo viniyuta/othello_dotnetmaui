@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:OthelloUI;assembly=OthelloUI"
+             x:Class="OthelloUI.MainPage"
+             Title="Othello">
+
+    <ScrollView>
+        <Grid>
+            <VerticalStackLayout
+                Padding="0, 20"
+                Spacing="20"
+                BackgroundColor="#4B4A4A">
+                <Border WidthRequest="150">
+                    <HorizontalStackLayout
+                        BackgroundColor="#3A5683"
+                        HeightRequest="50"
+                        Spacing="50">
+                        <VerticalStackLayout Spacing="5">
+                            <Image Source="black_stone_icon.png" WidthRequest="30"/>
+                            <Label Text="YOU" FontSize="15"/>
+                        </VerticalStackLayout>
+                        <Label x:Name="BlackPlayerCountLabel" FontSize="35"/>
+                    </HorizontalStackLayout>
+                </Border>
+                <Grid x:Name="BoardGrid">
+                    <Image Source="board_frame.png"/>
+                    <Grid 
+                        x:Name="PieceGrid" 
+                        BindingContext="{x:Reference Name=BoardGrid}"
+                        WidthRequest="{Binding Height}"
+                        HeightRequest="{Binding Height}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Padding="10"
+                        RowSpacing="10"
+                        ColumnSpacing="10"
+                        >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <BoxView 
+                            x:Name="LastPlayBoxView"
+                            Background="Transparent" 
+                            CornerRadius="8" WidthRequest="16" HeightRequest="16" 
+                            ZIndex="10" />
+                    </Grid>
+                </Grid>
+                <Border WidthRequest="150">
+                    <HorizontalStackLayout
+                        BackgroundColor="#616161"
+                        HeightRequest="50"
+                        Spacing="50">
+                        <VerticalStackLayout Spacing="5">
+                            <Image Source="white_stone_icon.png" WidthRequest="30"/>
+                            <Label Text="COM" FontSize="15"/>
+                        </VerticalStackLayout>
+                        <Label x:Name="WhitePlayerCountLabel" FontSize="35"/>
+                    </HorizontalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+            <Label x:Name="SkipLabel" FontSize="50" FontAttributes="Bold" Text="SKIP" ZIndex="20" />
+        </Grid>
+    </ScrollView>
+</ContentPage>
