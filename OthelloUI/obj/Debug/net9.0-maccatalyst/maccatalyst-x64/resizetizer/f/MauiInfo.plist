@@ -4,7 +4,10 @@
 <dict>
   <key>UIAppFonts</key>
   <array>
+	<string>.DS_Store</string>
+	<string>Bangers-Regular.ttf</string>
 	<string>FluentUI.cs</string>
+	<string>MauiInfo.plist</string>
 	<string>OpenSans-Regular.ttf</string>
 	<string>OpenSans-Semibold.ttf</string>
   </array>
