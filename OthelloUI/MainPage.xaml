@@ -6,7 +6,7 @@
              Title="Othello">
 
     <ScrollView>
-        <Grid>
+        <Grid x:Name="MainGrid">
             <VerticalStackLayout
                 Padding="0, 20"
                 Spacing="20"
@@ -76,7 +76,6 @@
                     </HorizontalStackLayout>
                 </Border>
             </VerticalStackLayout>
-            <Label x:Name="SkipLabel" FontSize="50" FontAttributes="Bold" Text="SKIP" ZIndex="20" />
         </Grid>
     </ScrollView>
 </ContentPage>

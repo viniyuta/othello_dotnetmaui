@@ -12,7 +12,7 @@ namespace OthelloLogic
         public Playables Playables { get; private set; }
         public Player CurrentPlayer { get; private set; }
         public Dictionary<Player, int> StoneCounts { get; private set; }
-        private bool skippedLastPlayer = false;
+        public bool SkippedLastPlayer { get; private set; } = false;
         public Result Result { get; private set; } = null;
 
 
@@ -28,33 +28,23 @@ namespace OthelloLogic
         {
             Board.MakePlay(CurrentPlayer, pos);
             CurrentPlayer = CurrentPlayer.Opponent();
+            SkippedLastPlayer = false;
             Playables = Board.UpdatePlayables(CurrentPlayer);
             StoneCounts = Board.CountStones();
-            CheckSkipPlayer();
         }
 
-        private void CheckSkipPlayer()
+        public void SkipPlayer()
         {
-            if (!Playables.HasPlayable())
+            CurrentPlayer = CurrentPlayer.Opponent();
+            Playables = Board.UpdatePlayables(CurrentPlayer);
+            if (SkippedLastPlayer)
             {
-                SkipCurrentPlayer();
-            }
-            else 
-            {
-                skippedLastPlayer = false;
-            }
-        }
-
-        private void SkipCurrentPlayer()
-        {
-            if (skippedLastPlayer)
-            {
+                SkippedLastPlayer = false;
                 EndGame();
-            }
+            } 
             else 
             {
-                CurrentPlayer = CurrentPlayer.Opponent();
-                skippedLastPlayer = true;
+                SkippedLastPlayer = true;
             }
         }
 
@@ -69,7 +59,6 @@ namespace OthelloLogic
             {
                 Result = Result.Win(winner, StoneCounts);
             }
-            // show game over screen
         }
 
         private Player CheckWinner()
