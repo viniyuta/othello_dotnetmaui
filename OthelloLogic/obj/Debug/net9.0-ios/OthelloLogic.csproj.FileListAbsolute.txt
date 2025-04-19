@@ -17,3 +17,4 @@
 /Users/yutafukuda/Desktop/Othello/OthelloLogic/obj/Debug/net9.0-ios/refint/OthelloLogic.dll
 /Users/yutafukuda/Desktop/Othello/OthelloLogic/obj/Debug/net9.0-ios/OthelloLogic.pdb
 /Users/yutafukuda/Desktop/Othello/OthelloLogic/obj/Debug/net9.0-ios/ref/OthelloLogic.dll
+/Users/yutafukuda/Desktop/Othello/OthelloLogic/obj/Debug/net9.0-ios/OthelloLogic.sourcelink.json

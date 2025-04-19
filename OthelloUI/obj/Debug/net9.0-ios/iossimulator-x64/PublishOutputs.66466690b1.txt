@@ -48,10 +48,6 @@
 /Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.Maui.dll
 /Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.Maui.Essentials.dll
 /Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.Maui.Graphics.dll
-/Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.Maui.Controls.HotReload.Forms.dll
-/Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-/Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.VisualStudio.DesignTools.TapContract.dll
-/Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
 /Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/OthelloLogic.dll
 /Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/OthelloUI.dll
 /Users/yutafukuda/Desktop/Othello/OthelloUI/bin/Debug/net9.0-ios/iossimulator-x64/publish/../OthelloUI.app/Microsoft.CSharp.dll

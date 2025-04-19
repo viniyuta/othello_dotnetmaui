@@ -19,7 +19,7 @@ public partial class MainPage : ContentPage
 		InitializeBoard();
 		
 		gameState = new GameState(Player.Black, Board.Initial());
-		UpdateBoard(gameState);
+		UpdateBoard();
 	}
 
 	private void InitializeBoard()
@@ -33,6 +33,16 @@ public partial class MainPage : ContentPage
 				PieceGrid.Add(image, col, row);
 			}
 		}
+	}
+
+	private void UpdateBoard()
+	{
+		HidePlayables();
+		CachePlayables(gameState.Playables);
+		DrawBoard(gameState.Board);
+		ShowLastPlay();
+		ShowPlayables(gameState.CurrentPlayer);
+		ShowCounts(gameState.StoneCounts);
 	}
 
 	private void DrawBoard(Board board)
@@ -51,8 +61,20 @@ public partial class MainPage : ContentPage
 		}
 	}
 
+	private void PlaceStone(Position pos)
+	{
+		gameState.PlayStone(pos);
+		lastPlay = pos;
+		UpdateBoard();
+	}
+
 	private void ShowPlayables(Player currentPlayer)
 	{
+		if (!HasPlayable())
+		{
+			SkipPlayer();
+			return;
+		}
 		foreach(Position pos in playablesCache)
 		{
 			pieceImages[pos.Column, pos.Row].Source = Images.GetPlayableImage(currentPlayer);
@@ -72,7 +94,7 @@ public partial class MainPage : ContentPage
 	{
 		if (lastPlay != null)
 		{
-			LastPlayBoxView.Color = Color.FromHex("E00000");
+			LastPlayBoxView.Color = Color.FromArgb("E00000");
 			PieceGrid.Add(LastPlayBoxView, lastPlay.Column, lastPlay.Row);
 		}
 	}
@@ -100,6 +122,15 @@ public partial class MainPage : ContentPage
 		}
 	}
 
+	private bool HasPlayable()
+	{
+		if (playablesCache.Count == 0)
+		{
+			return false;
+		}
+		return true;
+	}
+
 	private TapGestureRecognizer TapListener(int col, int row)
 	{
 		TapGestureRecognizer tapGestureRecognizer = new();
@@ -111,24 +142,20 @@ public partial class MainPage : ContentPage
 		return tapGestureRecognizer;
 	}
 
-	private void PlaceStone(Position pos)
+	private void SkipPlayer()
 	{
-		gameState.PlayStone(pos);
-		lastPlay = pos;
-		UpdateBoard(gameState);
+		gameState.SkipPlayer();
+		ShowSkipLabel();
+		UpdateBoard();
 	}
 
-	private void UpdateBoard(GameState gameState)
+	private async void ShowSkipLabel()
 	{
-		HidePlayables();
-		CachePlayables(gameState.Playables);
-		DrawBoard(gameState.Board);
-		ShowPlayables(gameState.CurrentPlayer);
-		ShowLastPlay();
-		ShowCounts(gameState.StoneCounts);
+		Label skipLabel = new Label { Text="SKIP", FontAttributes=FontAttributes.Bold, FontSize=50,ZIndex=20 };
+		MainGrid.Children.Add(skipLabel);
+		await Task.Delay(1500);
+		MainGrid.Children.Remove(skipLabel);
 	}
-
-
 }
 
 

@@ -201,5 +201,28 @@ namespace OthelloLogic
             }
             return counts;
         }
+
+        // private void AddSkipTestStartPieces()
+        // {
+        //     for (int row = 0; row < ROWS; row++)
+        //     {
+        //         this[2, row] = new Stone(Player.Black);
+        //         this[3, row] = new Stone(Player.Black);
+        //         this[4, row] = new Stone(Player.Black);
+        //     }
+
+        //     this[5,1] = new Stone(Player.Black);
+        //     this[5,2] = new Stone(Player.White);
+        //     this[5,3] = new Stone(Player.White);
+        //     this[5,4] = new Stone(Player.White);
+
+        //     for (int row = 1; row <= 3; row++)
+        //     {
+        //         this[6, row] = new Stone(Player.Black);
+        //         this[7, row] = new Stone(Player.Black);
+        //     }
+
+        //     this[7,0] = new Stone(Player.White);
+        // }
     }
 }
